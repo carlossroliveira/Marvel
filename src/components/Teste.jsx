@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import img from "../components/homem.png";
 
 const GridMain = styled.main`
   grid-area: main;
@@ -55,9 +54,10 @@ const CardMain = styled.div`
   }
 
   &:hover .content {
+    font-size: 14px;
     visibility: visible;
     opacity: 1;
-    margin-top: -10px;
+    margin-top: -30px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
       rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
       rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
@@ -70,7 +70,7 @@ const ImageBoxMain = styled.div`
   width: 260px;
   height: 260px;
   top: -60px;
-  left: 20px;
+  left: 11px;
   z-index: 1;
 `;
 
@@ -84,36 +84,29 @@ const ContentMain = styled.div`
   transition: 0.3s ease-in-out;
 `;
 
-const time = "1630936942629";
-const publica = "93f33769879385e84d132818b4c983af";
-const senha = "70c0551a8aeb04c0c0495fe7f39fff8d";
-
-React.useEffect(() => {
-  const diceResponse = fetch(
-    `http://gateway.marvel.com/v1/public/characters?ts=${time}&apikey=${publica}&hash=${senha}`
-  ).then((response) => response.json());
-
-  console.log(diceResponse);
-}, []);
-
-const Main = () => {
+const Teste = ({ dados }) => {
   return (
     <GridMain>
       <ContainerMain>
-        <CardMain>
-          <ImageBoxMain>
-            <img style={{ width: "15rem" }} src={img} alt="homem aranha" />
-          </ImageBoxMain>
-          <ContentMain className="content">
-            <h2>Card One</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed,
-            </p>
-          </ContentMain>
-        </CardMain>
+        {dados &&
+          dados.data.results.map((itens) => (
+            <CardMain key={itens.id}>
+              <ImageBoxMain>
+                <img
+                  style={{ width: "15rem" }}
+                  src={`${itens.thumbnail.path}.${itens.thumbnail.extension}`}
+                  alt="Imagens"
+                />
+              </ImageBoxMain>
+              <ContentMain className="content">
+                <h2>{itens.name}</h2>
+                <p>{itens.description}</p>
+              </ContentMain>
+            </CardMain>
+          ))}
       </ContainerMain>
     </GridMain>
   );
 };
 
-export default Main;
+export default Teste;

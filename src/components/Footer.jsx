@@ -36,7 +36,9 @@ const TitleFooter = styled.title`
 const Footer = () => {
   return (
     <GridFooter>
-      <TitleFooter>&copy; 2021 | Carlos Oliveira</TitleFooter>
+      <TitleFooter>
+        &copy; {new Date().getFullYear()} | Carlos Oliveira
+      </TitleFooter>
     </GridFooter>
   );
 };

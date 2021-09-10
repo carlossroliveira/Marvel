@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 const GridHeader = styled.header`
   grid-area: header;
@@ -31,12 +32,20 @@ const LiMain = styled.li`
 
 const Header = () => {
   return (
-    <GridHeader>
-      <UlMain>
-        <LiMain>Charracters</LiMain>
-        <LiMain>Comics</LiMain>
-      </UlMain>
-    </GridHeader>
+    <>
+      <GridHeader>
+        <UlMain>
+          <LiMain>
+            <NavLink className="effect" to="/" exact>
+              Charracters
+            </NavLink>
+          </LiMain>
+          <LiMain>
+            <NavLink className="effect" to="/Comics">Comics</NavLink>
+          </LiMain>
+        </UlMain>
+      </GridHeader>
+    </>
   );
 };
 
