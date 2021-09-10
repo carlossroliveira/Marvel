@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const GridMain = styled.main`
@@ -85,21 +84,7 @@ const ContentMain = styled.div`
   transition: 0.3s ease-in-out;
 `;
 
-const Main = () => {
-  const time = "1630936942629";
-  const publica = "93f33769879385e84d132818b4c983af";
-  const senha = "70c0551a8aeb04c0c0495fe7f39fff8d";
-
-  const [dados, setDados] = useState(null);
-
-  useEffect(() => {
-    fetch(
-      `http://gateway.marvel.com/v1/public/characters?ts=${time}&apikey=${publica}&hash=${senha}`
-    )
-      .then((response) => response.json())
-      .then((result) => setDados(result));
-  }, []);
-
+const Main = ({ dados }) => {
   return (
     <GridMain>
       <ContainerMain>

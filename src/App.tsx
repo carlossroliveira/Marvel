@@ -4,13 +4,11 @@ import GithubCorner from "react-github-corner";
 import GridLayout from "./components/GridLayout";
 
 import Header from "./components/Header";
-import Main from "./components/Main";
 import Footer from "./components/Footer";
 
+import Charracters from "./components/Charracters";
 import Comics from "./components/Comics";
 import Page404 from "./components/Page404";
-
-import Teste02 from "./components/Teste02";
 
 function App() {
   return (
@@ -20,9 +18,7 @@ function App() {
           <Header />
           <Switch>
             <Route path="/" exact>
-              {/* <Main /> */}
-              <Teste02 />
-              <Comics />
+              <Charracters />
             </Route>
             <Route path="/Comics">
               <Comics />
