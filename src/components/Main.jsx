@@ -93,7 +93,7 @@ const Main = ({ dados }) => {
             <CardMain key={itens.id}>
               <ImageBoxMain>
                 <img
-                  style={{ width: "15rem" }}
+                  style={{ width: "15rem", height: "15rem" }}
                   src={`${itens.thumbnail.path}.${itens.thumbnail.extension}`}
                   alt="Imagens"
                 />

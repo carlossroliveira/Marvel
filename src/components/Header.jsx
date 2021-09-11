@@ -41,7 +41,9 @@ const Header = () => {
             </NavLink>
           </LiMain>
           <LiMain>
-            <NavLink className="effect" to="/Comics">Comics</NavLink>
+            <NavLink className="effect" to="/Comics">
+              Comics
+            </NavLink>
           </LiMain>
         </UlMain>
       </GridHeader>
