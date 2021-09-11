@@ -1,3 +1,5 @@
+import GlobalStyle from "./style/global";
+
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import GithubCorner from "react-github-corner";
@@ -13,6 +15,7 @@ import Page404 from "./components/Page404";
 function App() {
   return (
     <>
+      <GlobalStyle />
       <GridLayout>
         <Router>
           <Header />

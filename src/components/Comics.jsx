@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Head from "./Head";
 import Main from "./Main";
 
 const { REACT_APP_TIME, REACT_APP_PUBLIC, REACT_APP_PRIVATE } = process.env;
@@ -16,6 +17,7 @@ const Comics = () => {
 
   return (
     <>
+      <Head title="Comics" />
       <Main dados={dados} />
     </>
   );
