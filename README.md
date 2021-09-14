@@ -5,8 +5,7 @@
 
 ---
 
-#### “Há um super-herói em todos nós, só precisamos da coragem para colocar a
-#### capa.” Clark Kent / Kal-El (Superman)
+#### “Há um super-herói em todos nós, só precisamos da coragem para colocar a capa.” Clark Kent / Kal-El (Superman)
 
 ---
 ## Marvel
