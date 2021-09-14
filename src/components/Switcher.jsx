@@ -6,4 +6,4 @@ import ThemeOff from '../img/lampadaOff.png';
 const claro = <img src={ThemeOn} alt="Tema Claro" />;
 const escuro = <img src={ThemeOff} alt="Tema Laranja" />;
 
-export default ({ themes }) => (themes ? escuro : claro);
+export default ({ themess }) => (themess ? escuro : claro);

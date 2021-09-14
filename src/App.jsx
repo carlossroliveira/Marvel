@@ -21,18 +21,12 @@ import Switcher from './components/Switcher';
 
 function App() {
   const [themes, setThemes] = useState();
-
   const handleThemes = () => setThemes((theme) => !theme);
 
   return (
     <>
       <ThemeProvider theme={themes ? themeLight : themeDark}>
         <GlobalStyle />
-
-        <Button onClick={handleThemes}>
-          <Switcher themes={themes} />
-        </Button>
-
         <GridLayout>
           <Router>
             <Header />
@@ -51,6 +45,11 @@ function App() {
           </Router>
         </GridLayout>
       </ThemeProvider>
+
+      <Button onClick={handleThemes}>
+        <Switcher themess={themes} />
+      </Button>
+
       <GithubCorner
         href="https://github.com/carlossroliveira"
         target="_blank"
