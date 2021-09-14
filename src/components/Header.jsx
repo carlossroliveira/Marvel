@@ -1,16 +1,13 @@
-import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
+
+
 const GridHeader = styled.header`
   grid-area: header;
-  background: rgb(199, 48, 0);
-  background: linear-gradient(
-    353deg,
-    rgba(199, 48, 0, 1) 40%,
-    rgba(10, 1, 0, 1) 93%
-  );
+  background: ${({ theme }) => theme.body};
 
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  box-shadow: #00000066 0px 2px 4px, #0000004c 0px 7px 13px -3px, #00000033 0px -3px 0px inset;
 
   padding: 2rem;
 `;
@@ -24,7 +21,7 @@ const UlMain = styled.ul`
 `;
 
 const LiMain = styled.li`
-  font-family: "Patrick Hand", cursive;
+  font-family: 'Patrick Hand', cursive;
   color: white;
   font-size: 1.4rem;
 `;
@@ -37,8 +34,9 @@ const LinkCustom = styled.a`
     cursor: pointer;
     position: relative;
     padding: 10px;
-    color: white;
-    background: linear-gradient(90deg, #212121 0%, #212121 100%);
+
+    color: ${({ theme }) => theme.fontDefault};
+    background: ${({ theme }) => theme.backDefault};
 
     border: 1px solid #c73000;
     border-radius: 50px;
@@ -54,7 +52,7 @@ const LinkCustom = styled.a`
   }
 
   .active.effect::after {
-    content: "";
+    content: '';
     width: 30px;
     height: 30px;
     border-radius: 100%;
@@ -84,29 +82,27 @@ const LinkCustom = styled.a`
   }
 `;
 
-const Header = () => {
-  return (
-    <>
-      <GridHeader>
-        <UlMain>
-          <LiMain>
-            <LinkCustom>
-              <NavLink className="effect" to="/" exact>
-                Charracters
-              </NavLink>
-            </LinkCustom>
-          </LiMain>
-          <LiMain>
-            <LinkCustom>
-              <NavLink className="effect" to="/Comics">
-                Comics
-              </NavLink>
-            </LinkCustom>
-          </LiMain>
-        </UlMain>
-      </GridHeader>
-    </>
-  );
-};
+const Header = () => (
+  <>
+    <GridHeader>
+      <UlMain>
+        <LiMain>
+          <LinkCustom>
+            <NavLink className="effect" to="/" exact>
+              Charracters
+            </NavLink>
+          </LinkCustom>
+        </LiMain>
+        <LiMain>
+          <LinkCustom>
+            <NavLink className="effect" to="/Comics">
+              Comics
+            </NavLink>
+          </LinkCustom>
+        </LiMain>
+      </UlMain>
+    </GridHeader>
+  </>
+);
 
 export default Header;

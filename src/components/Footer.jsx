@@ -1,20 +1,15 @@
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const GridFooter = styled.footer`
   grid-area: footer;
-  background: rgb(199, 48, 0);
-  background: linear-gradient(
-    180deg,
-    rgba(199, 48, 0, 1) 40%,
-    rgba(10, 1, 0, 1) 93%
-  );
+  background: ${({ theme }) => theme.body};
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
-    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  box-shadow: #32325d3f 0px 30px 60px -12px inset, #0000004c 0px 18px 36px -18px inset;
 
   padding: 2rem;
   text-align: center;
@@ -22,9 +17,9 @@ const GridFooter = styled.footer`
 
 const TitleFooter = styled.title`
   display: inline-block;
-  color: white;
+  color: ${({ theme }) => theme.fontCard};
 
-  font-family: "Patrick Hand", cursive;
+  font-family: 'Patrick Hand', cursive;
   font-size: 1.4rem;
 
   &:hover {
@@ -33,14 +28,10 @@ const TitleFooter = styled.title`
   }
 `;
 
-const Footer = () => {
-  return (
-    <GridFooter>
-      <TitleFooter>
-        &copy; {new Date().getFullYear()} | Carlos Oliveira
-      </TitleFooter>
-    </GridFooter>
-  );
-};
+const Footer = () => (
+  <GridFooter>
+    <TitleFooter>&copy; {new Date().getFullYear()} | Carlos Oliveira</TitleFooter>
+  </GridFooter>
+);
 
 export default Footer;

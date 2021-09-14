@@ -1,7 +1,8 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
+import { primaryBackgroundFooter } from '../stylus/Variaveis';
 
-export default createGlobalStyle`
-* {
+const GlobalStyle = createGlobalStyle`
+* { 
   box-sizing: border-box;
 }
 
@@ -22,21 +23,21 @@ body {
   margin: 0;
   padding: 0;
 }
+
+
 ::-webkit-scrollbar {
   width: 12px
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #c73000;
+  background: ${primaryBackgroundFooter};
   border-radius: 50px;
-  border: 1px solid #c73000
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(transparent, #c73000)
+  border: 1px solid ${primaryBackgroundFooter};
 }
 
 ::-webkit-scrollbar-button {
-  background-color: #c73000
+  background: ${primaryBackgroundFooter};
 }
 `;
+
+export default GlobalStyle;

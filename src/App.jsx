@@ -1,44 +1,63 @@
-import GlobalStyle from "./style/global";
+import React, { useState } from 'react';
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import GithubCorner from "react-github-corner";
-import GridLayout from "./components/GridLayout";
+import GithubCorner from 'react-github-corner';
 
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import { ThemeProvider } from 'styled-components';
+import { themeLight, themeDark } from './stylus/Themes';
 
-import Charracters from "./components/Charracters";
-import Comics from "./components/Comics";
-import Page404 from "./components/Page404";
+import GlobalStyle from './style/GlobalStyle';
+import GridLayout from './components/GridLayout';
+
+import Header from './components/Header';
+import Footer from './components/Footer';
+
+import Charracters from './components/Charracters';
+import Comics from './components/Comics';
+import Page404 from './components/Page404';
+import Button from './components/Button';
+import Switcher from './components/Switcher';
 
 function App() {
+  const [themes, setThemes] = useState();
+
+  const handleThemes = () => setThemes((theme) => !theme);
+
   return (
     <>
-      <GlobalStyle />
-      <GridLayout>
-        <Router>
-          <Header />
-          <Switch>
-            <Route path="/" exact>
-              <Charracters />
-            </Route>
-            <Route path="/Comics">
-              <Comics />
-            </Route>
-            <Route path="*">{<Page404 />}</Route>
-          </Switch>
-          <Footer />
-        </Router>
-      </GridLayout>
+      <ThemeProvider theme={themes ? themeLight : themeDark}>
+        <GlobalStyle />
 
+        <Button onClick={handleThemes}>
+          <Switcher themes={themes} />
+        </Button>
+
+        <GridLayout>
+          <Router>
+            <Header />
+            <Switch>
+              <Route path="/" exact>
+                <Charracters />
+              </Route>
+              <Route path="/Comics">
+                <Comics />
+              </Route>
+              <Route path="*">
+                <Page404 />
+              </Route>
+            </Switch>
+            <Footer />
+          </Router>
+        </GridLayout>
+      </ThemeProvider>
       <GithubCorner
         href="https://github.com/carlossroliveira"
         target="_blank"
         bannerColor="#212121"
-        octoColor="#fff"
+        octoColor="#eee"
         size={80}
-        direction="right"
+        direction="left"
       />
     </>
   );

@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const Font = styled.div`
   grid-area: main;
@@ -20,14 +20,12 @@ const Font = styled.div`
   -webkit-text-fill-color: transparent;
 `;
 
-const Page404 = () => {
-  return (
-    <>
-      <Font>
-        <h1>Page 404</h1>
-      </Font>
-    </>
-  );
-};
+const Page404 = () => (
+  <>
+    <Font>
+      <h1>Page 404</h1>
+    </Font>
+  </>
+);
 
 export default Page404;
